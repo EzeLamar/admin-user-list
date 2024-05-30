@@ -36,7 +36,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col p-24 dark:bg-gray-900">
+    <main className="flex min-h-screen flex-col p-12 dark:bg-gray-900 overflow-x-auto">
       <h2 className="mb-4 text-2xl font-bold dark:text-gray-400">Users</h2>
       {loading ? <Loading /> : <UsersList users={users} setUsers={setUsers} />}
     </main>

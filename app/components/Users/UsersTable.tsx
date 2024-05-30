@@ -21,10 +21,10 @@ function UsersTable({ users, handleDeleteUser }: Props) {
             <th scope="col" className="px-6 py-3 rounded-tl-lg">
               Name
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="hidden sm:table-cell px-6 py-3">
               Email
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="hidden lg:table-cell px-6 py-3">
               Username
             </th>
             <th scope="col" className="px-6 py-3 rounded-tr-lg">
@@ -38,9 +38,23 @@ function UsersTable({ users, handleDeleteUser }: Props) {
               key={user.id}
               className="bg-white border-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
             >
-              <td className="px-6 py-3 font-semibold">{user.name}</td>
-              <td className="px-6 py-3 font-semibold">{user.email}</td>
-              <td className="px-6 py-3 font-semibold">{user.username}</td>
+              <td className="w-full max-w-0 px-6 py-3 font-semibold">
+                {user.name}
+                <dl className="lg:hidden font-normal">
+                  <dt className="sr-only">Email</dt>
+                  <dd className="sm:hidden text-gray-500 dark:text-gray-400 truncate">
+                    {user.email}
+                  </dd>
+                  <dt className="sr-only ">username</dt>
+                  <dd className="lg:hidden text-gray-500">{user.username}</dd>
+                </dl>
+              </td>
+              <td className="hidden sm:table-cell px-6 py-3 font-semibold">
+                {user.email}
+              </td>
+              <td className="hidden lg:table-cell px-6 py-3 font-semibold">
+                {user.username}
+              </td>
               <td className="px-6 py-3">
                 <button
                   className="font-semibold bg-transparent hover:bg-gray-500 border-gray-400 dark:text-gray-400 hover:text-white py-2 px-4 border hover:border-transparent rounded"
