@@ -9,6 +9,12 @@ type Props = {
 };
 function UsersList({ users, setUsers }: Props) {
   const [search, setSearch] = React.useState("");
+  const filteredUsers = users.filter(
+    (users) =>
+      users.name.toLowerCase().includes(search.toLowerCase()) ||
+      users.email.toLowerCase().includes(search.toLowerCase()) ||
+      users.username.toLowerCase().includes(search.toLowerCase()),
+  );
 
   const handleDeleteUser = (id: string) => {
     setUsers(users.filter((user) => user.id !== id));
@@ -17,11 +23,7 @@ function UsersList({ users, setUsers }: Props) {
   return (
     <div className="flex-col">
       <UserSearch search={search} setSearch={setSearch} />
-      <UsersTable
-        users={users}
-        search={search}
-        handleDeleteUser={handleDeleteUser}
-      />
+      <UsersTable users={filteredUsers} handleDeleteUser={handleDeleteUser} />
     </div>
   );
 }

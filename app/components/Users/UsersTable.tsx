@@ -3,19 +3,11 @@ import { User } from "../../page";
 
 type Props = {
   users: User[];
-  search: string;
   handleDeleteUser: (id: string) => void;
 };
 
-function UsersTable({ users, search, handleDeleteUser }: Props) {
-  const filteredUsers = users.filter(
-    (users) =>
-      users.name.toLowerCase().includes(search.toLowerCase()) ||
-      users.email.toLowerCase().includes(search.toLowerCase()) ||
-      users.username.toLowerCase().includes(search.toLowerCase()),
-  );
-
-  if (filteredUsers.length === 0) {
+function UsersTable({ users, handleDeleteUser }: Props) {
+  if (users.length === 0) {
     return (
       <div className="pt-2 text-center text-xl font-bold text-gray-600 dark:text-gray-400">
         No Users Found
@@ -42,7 +34,7 @@ function UsersTable({ users, search, handleDeleteUser }: Props) {
           </tr>
         </thead>
         <tbody>
-          {filteredUsers.map((user) => (
+          {users.map((user) => (
             <tr
               key={user.id}
               className="bg-white border-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
