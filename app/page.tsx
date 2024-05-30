@@ -17,14 +17,18 @@ export default function Home() {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users",
-      );
-      const json = await response.json();
+      try {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/users",
+        );
+        const json = await response.json();
 
-      if (response.ok) {
-        setUsers(json);
-        setLoading(false);
+        if (response.ok) {
+          setUsers(json);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.error("Error: Failed to fetch users");
       }
     };
 
