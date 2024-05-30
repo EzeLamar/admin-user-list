@@ -1,9 +1,8 @@
-import React from "react";
-
 type Props = {
   search: string;
   setSearch: (search: string) => void;
 };
+
 function UserSearch({ search, setSearch }: Props) {
   return (
     <div className="py-4">

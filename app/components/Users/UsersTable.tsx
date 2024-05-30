@@ -1,4 +1,3 @@
-import React from "react";
 import { User } from "../../page";
 
 type Props = {
@@ -17,7 +16,7 @@ function UsersTable({ users, handleDeleteUser }: Props) {
   return (
     <div className="border rounded-lg">
       <table className="w-full table-auto border-collapse text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead className="text-md text-gray-400 border-b bg-white dark:bg-gray-700 dark:text-gray-400 border-gray-300 dark:border-gray-400">
+        <thead className="text-md text-gray-400 border-b bg-white dark:bg-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-400">
           <tr>
             <th scope="col" className="px-6 py-3 rounded-tl-lg">
               Name

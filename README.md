@@ -1,6 +1,9 @@
 # Admin User List
 
 This project was created using NextJs and Tailwind-CSS.
+The project show a table that allows site administrators be able to see a paginated list of users.
+Allow search by name, email and username.
+Page style (dark mode, light mode) based on the System Configuration.
 
 ## Getting Started
 
